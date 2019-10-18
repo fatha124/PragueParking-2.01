@@ -23,6 +23,11 @@ namespace Pragueparking2._01
 
         }
 
+        public int Parkspot 
+        {
+            get { return this.ParkingSpot; }
+            set { this.ParkingSpot = value;}
+        }
 
         public void Add()
         {
