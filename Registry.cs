@@ -23,29 +23,7 @@ namespace Pragueparking2._01
 
         }
 
-        public int Parkspot 
-        {
-            get { return this.ParkingSpot; }
-            set { this.ParkingSpot = value;}
-        }
-        public string Type 
-        {
-            get { return this.TypeOfVehicle; }
-        }
-
-        public string RegNumber 
-        {
-            get { return this.RegNumb; }
-        }
-        
-        public string TimeWhenArrived 
-        {
-            get { return this.TimeParked; }
-        }
-        public string DateWhenArrived
-        {
-            get { return this.DateParked; }
-        }
+       
         public Vehicle SearchWithRegNumber(String RegNumb) 
         {
             foreach(Vehicle vehicle in vehicles) 
