@@ -47,10 +47,18 @@ namespace Pragueparking2._01
         }
         public bool CheckIfSpotIsTaken(int parkspot, string type) 
         {
+            if (Vehicles.Count == 0)
+            {
+                return false;
+            }
             int check = CheckSpot(parkspot);
+            if (check == 0)
+            {
+                return false;
+            }
 
-            
-          return true;
+
+            return true;
         }
 
         public int CheckSpot(int parkspot)
