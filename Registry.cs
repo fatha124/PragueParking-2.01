@@ -40,7 +40,7 @@ namespace Pragueparking2._01
         public Vehicle RegisterVehicle(string type, string regnumb, int spot, DateTime timewhenparked) 
         {
             Vehicle vehicle = new Vehicle(type, regnumb, spot, timewhenparked);
-            Vehicles.Add(vehicle);
+            
             return vehicle;
         }
         public bool CheckIfSpotIsTaken(int parkspot, string type) 
@@ -83,6 +83,13 @@ namespace Pragueparking2._01
 
         public bool CheckForDup(string regnumb) 
         {
+            foreach (Vehicle vehicles in Vehicles)
+            {
+                if (vehicles.RegNumber == regnumb)
+                {
+                    return true;
+                }
+            }
             return false;
         }
     }   
