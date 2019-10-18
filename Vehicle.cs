@@ -12,11 +12,11 @@ namespace Pragueparking2._01
 
         public Vehicle(string type, string regnumb, int parkspot, DateTime TimeWhenParked) 
         {
-            this.TypeOfVehicle = type;
-            this.regnumber = regnumb;
-            this.ParkingSpot = parkspot;
-            this.TimeParked = TimeWhenParked.ToString("HH:MM:ss");
-            this.DateParked = TimeWhenParked.ToString("MM/DD/YYYY");
+            TypeOfVehicle = type;
+            regnumber = regnumb;
+            ParkingSpot = parkspot;
+            TimeParked = TimeWhenParked.ToString("HH:MM:ss");
+            DateParked = TimeWhenParked.ToString("MM/DD/YYYY");
         }
 
 

@@ -32,5 +32,14 @@ namespace Pragueparking2._01
 
             return true;
         }
+    
+        public List<Vehicle> Vehicles 
+        {
+            get 
+            {
+                vehicles = vehicles.OrderBy(Vehicles => Vehicle.ParkingSpot).ToList();
+                return vehicles;
+            }
+        }
     }
 }
