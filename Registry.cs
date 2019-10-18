@@ -8,10 +8,11 @@ namespace Pragueparking2._01
     {
         private Vehicle vehicle;
 
-        
-        public Registry( Vehicle vehicle) 
+        public List<Vehicle> vehicles;
+        public Registry() 
         {
-             parkedVehicle = new List<Vehicle>();
+
+            vehicles = new List<Vehicle>();
             this.vehicle = vehicle;
         }
 
