@@ -58,7 +58,7 @@ namespace Pragueparking2._01
             int i = 0;
             foreach (Vehicle vehicles in Vehicles)
             {
-                if (Vehicle.parkspot == parkspot)
+                if (vehicles.ParkingSpot == parkspot)
                 {
                     i++;
                 }
@@ -67,6 +67,10 @@ namespace Pragueparking2._01
             return i;
         }
 
+        static bool CheckForDup(string regnumb) 
+        {
+            return false;
+        }
     }   
     
 }

@@ -4,7 +4,7 @@ namespace Pragueparking2._01
 {
     public class Vehicle
     {
-        internal static int parkspot;
+       
 
         public string TypeOfVehicle { get; set; }
         public string RegNumber { get; set; }
