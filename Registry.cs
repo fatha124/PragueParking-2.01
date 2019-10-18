@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Pragueparking2._01
 {
@@ -12,7 +14,7 @@ namespace Pragueparking2._01
         private string DateParked;
         private int ParkingSpot;
 
-        public List<Vehicle> vehicles;
+        public List<Vehicle> vehicles { get; }
         //Constructor
         public Registry()
         {
@@ -33,13 +35,7 @@ namespace Pragueparking2._01
             return true;
         }
     
-        public List<Vehicle> Vehicles 
-        {
-            get 
-            {
-                vehicles = vehicles.OrderBy(Vehicles => Vehicle.ParkingSpot).ToList();
-                return vehicles;
-            }
-        }
-    }
+        
+    }   
+    
 }
