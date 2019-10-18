@@ -43,10 +43,30 @@ namespace Pragueparking2._01
         public Vehicle RegisterVehicle(string type, string regnumb, int spot, DateTime timewhenparked) 
         {
             Vehicle vehicle = new Vehicle(type, regnumb, spot, timewhenparked);
-            Vehicles.Add(vehicle);
             return vehicle;
         }
-        
+        public bool CheckIfSpotIsTaken(int parkspot, string type) 
+        {
+            int check = CheckSpot(parkspot);
+
+            
+          return true;
+        }
+
+        public int CheckSpot(int parkspot)
+        {
+            int i = 0;
+            foreach (Vehicle vehicles in Vehicles)
+            {
+                if (Vehicle.parkspot == parkspot)
+                {
+                    i++;
+                }
+            }
+
+            return i;
+        }
+
     }   
     
 }
