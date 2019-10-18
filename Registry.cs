@@ -8,12 +8,6 @@ namespace Pragueparking2._01
 {
     public class Registry
     {
-        private string TypeOfVehicle;
-        private string RegNumb;
-        private string TimeParked;
-        private string DateParked;
-        private int ParkingSpot;
-
         public List<Vehicle> vehicles { get; }
         //Constructor
         public Registry()
@@ -24,7 +18,7 @@ namespace Pragueparking2._01
         }
 
        
-        public Vehicle SearchWithRegNumber(String RegNumb) 
+        public Vehicle SearchWithRegNumber(string RegNumb) 
         {
             foreach(Vehicle vehicle in vehicles) 
             {
