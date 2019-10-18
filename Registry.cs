@@ -8,19 +8,19 @@ namespace Pragueparking2._01
 {
     public class Registry
     {
-        public List<Vehicle> vehicles { get; }
+        public List<Vehicle> Vehicles { get; }
         //Constructor
         public Registry()
         {
 
-            vehicles = new List<Vehicle>();
+            Vehicles = new List<Vehicle>();
 
         }
 
        
         public Vehicle SearchWithRegNumber(string RegNumb) 
         {
-            foreach(Vehicle vehicle in vehicles) 
+            foreach(Vehicle vehicle in Vehicles) 
             {
                 if(vehicle.regnumber == RegNumb) 
                 {
@@ -34,7 +34,7 @@ namespace Pragueparking2._01
             
         }
 
-        public bool search() 
+        public bool Search() 
         {
 
             return true;
