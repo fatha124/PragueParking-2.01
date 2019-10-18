@@ -22,7 +22,7 @@ namespace Pragueparking2._01
         {
             foreach(Vehicle vehicle in Vehicles) 
             {
-                if(vehicle.regnumber == RegNumb) 
+                if(vehicle.RegNumber == RegNumb) 
                 {
                     return vehicle;
                 }
