@@ -13,7 +13,7 @@ namespace Pragueparking2._01
         private Registry registry;
         private FileController fileController;
         
-        //konstruktor
+        //constructor
         public Program()
         {
             menu = new Menu(registry);
