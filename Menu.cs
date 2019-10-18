@@ -14,7 +14,7 @@ namespace Pragueparking2._01
         }
         public void MainMenu() 
         {
-            Console.WriteLine("Works!");
+            Console.WriteLine("");
 
         }
     }

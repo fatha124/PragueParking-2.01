@@ -6,16 +6,31 @@ namespace Pragueparking2._01
 {
     public class Registry
     {
-        private Vehicle vehicle;
+        private string TypeOfVehicle;
+        private string Registration;
+        private string TimeParked;
+        private string DateParked;
+        private int ParkingSpot;
 
         public List<Vehicle> vehicles;
-        public Registry() 
+        //Constructor
+        public Registry()
         {
 
             vehicles = new List<Vehicle>();
-            this.vehicle = vehicle;
+
         }
 
 
+        public void Add()
+        {
+            
+        }
+
+        public bool search() 
+        {
+
+            return true;
+        }
     }
 }
