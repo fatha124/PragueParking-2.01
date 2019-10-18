@@ -10,36 +10,18 @@ namespace Pragueparking2._01
         public string DateParked { get; set; }
         public int ParkingSpot { get; set; }
 
-        public Vehicle(string type, string RegNumb, int parkspot, DateTime TimeWhenParked) 
+        public Vehicle(string type, string regnumb, int parkspot, DateTime timewhenparked) 
         {
             TypeOfVehicle = type;
-            RegNumber = RegNumb;
+            RegNumber = regnumb;
             ParkingSpot = parkspot;
-            TimeParked = TimeWhenParked.ToString("HH:MM:ss");
-            DateParked = TimeWhenParked.ToString("MM/DD/YYYY");
+            TimeParked = timewhenparked.ToString("HH:MM:ss");
+            DateParked = timewhenparked.ToString("MM/DD/YYYY");
         }
 
 
-        public int parkspot { get; set; }
+  
         
-        public string type { get; }
-       
-
-        public string reg
-        {
-            get { return this.RegNumber; }
-        }
-
-        public string timeWhenArrived
-        {
-            get { return this.TimeParked; }
-        }
-        public string datewhenarrived
-        {
-            get { return this.DateParked; }
-        }
-        
-
 
 
     }
