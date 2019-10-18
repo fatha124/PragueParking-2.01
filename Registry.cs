@@ -51,14 +51,22 @@ namespace Pragueparking2._01
             {
                 return false;
             }
-            int check = CheckSpot(parkspot);
-            if (check == 0)
+            foreach(Vehicle vehicles in Vehicles) 
             {
-                return false;
+                int check = CheckSpot(parkspot);
+                if (check == 0)
+                {
+                    return false;
+                }
+                if(type == "mc") 
+                {
+                    if(vehicles.TypeOfVehicle == "mc" && CheckSpot(parkspot) < 2) 
+                    {
+                        return false;
+                    }
+                }
             }
-
-
-            return true;
+             return true;
         }
 
         public int CheckSpot(int parkspot)
