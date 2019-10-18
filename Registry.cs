@@ -6,6 +6,9 @@ namespace Pragueparking2._01
 {
     public class Registry
     {
-    
+        public Vehicle vehicle;
+
+
+
     }
 }

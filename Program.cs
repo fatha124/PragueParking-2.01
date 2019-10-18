@@ -14,7 +14,7 @@ namespace Pragueparking2._01
         private FileController fileController;
         public Program()
         {
-            menu = new Menu();
+            menu = new Menu(registry);
             registry = new Registry();
             fileController = new FileController();
 
@@ -22,7 +22,7 @@ namespace Pragueparking2._01
 
         private void Run()
         {
-
+            menu.MainMenu();
         }
 
 
