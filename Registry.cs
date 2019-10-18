@@ -29,11 +29,7 @@ namespace Pragueparking2._01
             }
             return null;
         }
-        public void Add()
-        {
-            
-            
-        }
+       
 
         public bool Search() 
         {
@@ -44,6 +40,7 @@ namespace Pragueparking2._01
         public Vehicle RegisterVehicle(string type, string regnumb, int spot, DateTime timewhenparked) 
         {
             Vehicle vehicle = new Vehicle(type, regnumb, spot, timewhenparked);
+            Vehicles.Add(vehicle);
             return vehicle;
         }
         public bool CheckIfSpotIsTaken(int parkspot, string type) 
@@ -84,7 +81,7 @@ namespace Pragueparking2._01
             return i;
         }
 
-        static bool CheckForDup(string regnumb) 
+        public bool CheckForDup(string regnumb) 
         {
             return false;
         }

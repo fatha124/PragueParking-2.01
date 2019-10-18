@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pragueparking2._01 
 {
-    class Menu
+  public class Menu
     {
         private Registry registry;
 
@@ -98,7 +98,7 @@ namespace Pragueparking2._01
                         int.TryParse(Console.ReadLine(), out parkspot);
                         Console.Clear();
                     }
-                    while (CheckIfSpotIsTaken(parkspot, type))
+                    while (registry.CheckIfSpotIsTaken(parkspot, type))
                     {
                         Console.WriteLine("The chosen spot {0} is  already taken\n" + "Please try again... ", parkspot);
                         int.TryParse(Console.ReadLine(), out parkspot);
@@ -110,7 +110,7 @@ namespace Pragueparking2._01
                         }
                     }
                     Console.Clear();
-                    InsertVehicle(type, regnumb, parkspot, TimeWhenParked);
+                    registry.RegisterVehicle(type, regnumb, parkspot, TimeWhenParked);
                     Console.WriteLine("Your {0} with regnumber {1} has been parked at spot {2}.\n" + " At the current time {3}\n" + "Press enter to continue...", type, regnumb, parkspot, TimeWhenParked);
                     Console.ReadKey();
                     MainMenu();
