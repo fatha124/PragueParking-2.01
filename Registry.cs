@@ -92,6 +92,39 @@ namespace Pragueparking2._01
             }
             return false;
         }
+    
+        public void CalculateTheCost(Vehicle vehicle) 
+        {
+            Vehicle vehicle;
+            TimeSpan TimeParked = DateTime.Now - Convert.ToDateTime(vehicle.DateParked);
+            double TimeSinceParked = Convert.ToInt32(TimeParked.TotalMinutes);
+            double TotalCost = 0;
+            if (TimeSinceParked > 5 && TimeSinceParked < 120)
+            {
+                if (vehicle.TypeOfVehicle == "mc")
+                {
+                    TotalCost = (int)Price.Mc * 2;
+                }
+                else
+                {
+                    TotalCost = (int)Price.Car * 2;
+                }
+            }
+            else if (TimeSinceParked >= 120)
+            {
+                int parkedminutes = Convert.ToInt32((Convert.ToDateTime(vehicle.DateParked) - DateTime.Now).TotalMinutes);
+                parkedminutes = Math.Abs(parkedminutes);
+                if (vehicle.TypeOfVehicle == "mc")
+                {
+                    TotalCost = Math.Ceiling((TimeSinceParked / 60)) * (int)Price.Mc;
+                }
+                else
+                {
+                    TotalCost = Math.Ceiling((TimeSinceParked / 60)) * (int)Price.Car;
+                }
+            }
+        }
+    
     }   
     
 }

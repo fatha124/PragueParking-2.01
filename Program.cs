@@ -13,14 +13,13 @@ namespace Pragueparking2._01
         private Registry registry;
         private FileController fileController;
 
-        int price = Price.Car;
+        
         
         //constructor
         public Program()
         {
             registry = new Registry();
             fileController = new FileController();
-            price = new Price();
             menu = new Menu(registry);
            
 

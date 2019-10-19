@@ -130,6 +130,10 @@ namespace Pragueparking2._01
         }
         public void CollectVehicle() 
         {
+            Console.Clear();
+            Console.WriteLine("Enter registration number: ");
+            string regnumb = Console.ReadLine();
+            regnumb.ToLower();
         
         }
 
