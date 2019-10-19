@@ -24,7 +24,9 @@ namespace Pragueparking2._01
         }
         public StringBuilder Save()
         {
+            
             StringBuilder BuiltString = new StringBuilder();
+            
             foreach (Vehicle vehicle in registry.Vehicles)
             {
                 BuiltString.Append($"{vehicle.TypeOfVehicle}\n"
@@ -32,6 +34,7 @@ namespace Pragueparking2._01
                     + $"{vehicle.DateAndTimeParked}\n"
                     + $"{vehicle.ParkingSpot}");
             }
+            string s = BuiltString.ToString();
             return BuiltString;
         }
         public void Read()
