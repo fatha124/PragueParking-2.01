@@ -152,7 +152,10 @@ namespace Pragueparking2._01
                 {
                     CollectVehicle();
                 }
-
+                if (vehicle != null) 
+                {
+                
+                }
 
             }
 
