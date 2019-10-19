@@ -35,6 +35,7 @@ namespace Pragueparking2._01
                     + $"{vehicle.ParkingSpot}");
             }
             string s = BuiltString.ToString();
+            File.WriteAllText("ParkingLot.txt", s);
             return BuiltString;
         }
         public void Read()
