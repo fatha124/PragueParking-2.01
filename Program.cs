@@ -27,6 +27,7 @@ namespace Pragueparking2._01
 
         private void Run()
         {
+            //Test
             string reg = "123456";
             DateTime now = DateTime.Now;
             var testTime = now.Subtract(TimeSpan.FromHours(5));
