@@ -27,6 +27,19 @@ namespace Pragueparking2._01
 
         private void Run()
         {
+            string reg = "123456";
+            DateTime now = DateTime.Now;
+            var testTime = now.Subtract(TimeSpan.FromHours(5));
+
+            registry.RegisterVehicle("mc", reg, 1, testTime);
+
+
+            Vehicle vehicle = registry.SearchWithRegNumber(reg);
+            registry.RemoveVehicle(vehicle);
+            double cost = registry.CalculateTheCost(vehicle);
+            Console.WriteLine($"Cost: {cost}");
+                Console.ReadKey();
+
             menu.MainMenu();
 
         }

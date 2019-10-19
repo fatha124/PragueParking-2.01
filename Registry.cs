@@ -17,60 +17,60 @@ namespace Pragueparking2._01
 
         }
 
-       
-        public Vehicle SearchWithRegNumber(string RegNumb) 
+
+        public Vehicle SearchWithRegNumber(string RegNumb)
         {
-            foreach(Vehicle vehicle in Vehicles) 
+            foreach (Vehicle vehicle in Vehicles)
             {
-                if(vehicle.RegNumber == RegNumb) 
+                if (vehicle.RegNumber == RegNumb)
                 {
                     return vehicle;
                 }
             }
             return null;
         }
-       
 
-        public bool Search() 
+
+        public bool Search()
         {
 
             return true;
         }
-        
-        public Vehicle RegisterVehicle(string type, string regnumb, int spot, DateTime timewhenparked) 
+
+        public Vehicle RegisterVehicle(string type, string regnumb, int spot, DateTime timewhenparked)
         {
             Vehicle vehicle = new Vehicle(type, regnumb, spot, timewhenparked);
             Vehicles.Add(vehicle);
 
             return vehicle;
         }
-        public void RemoveVehicle(Vehicle vehicle) 
+        public void RemoveVehicle(Vehicle vehicle)
         {
-             Vehicles.Remove(vehicle);
+            Vehicles.Remove(vehicle);
         }
-        
-        public bool CheckIfSpotIsTaken(int parkspot, string type) 
+
+        public bool CheckIfSpotIsTaken(int parkspot, string type)
         {
             if (Vehicles.Count == 0)
             {
                 return false;
             }
-            foreach(Vehicle vehicles in Vehicles) 
+            foreach (Vehicle vehicles in Vehicles)
             {
                 int check = CheckSpot(parkspot);
                 if (check == 0)
                 {
                     return false;
                 }
-                if(type == "mc") 
+                if (type == "mc")
                 {
-                    if(vehicles.TypeOfVehicle == "mc" && CheckSpot(parkspot) < 2) 
+                    if (vehicles.TypeOfVehicle == "mc" && CheckSpot(parkspot) < 2)
                     {
                         return false;
                     }
                 }
             }
-             return true;
+            return true;
         }
 
         public int CheckSpot(int parkspot)
@@ -87,7 +87,7 @@ namespace Pragueparking2._01
             return i;
         }
 
-        public bool CheckForDup(string regnumb) 
+        public bool CheckForDup(string regnumb)
         {
             foreach (Vehicle vehicles in Vehicles)
             {
@@ -98,11 +98,12 @@ namespace Pragueparking2._01
             }
             return false;
         }
-    
-        public double CalculateTheCost(Vehicle vehicle) 
+
+        public double CalculateTheCost(Vehicle vehicle)
         {
 
-            TimeSpan TimeParked = Convert.ToDateTime(vehicle.TimeParked) - DateTime.Now;
+            TimeSpan TimeParked = DateTime.Now - Convert.ToDateTime(vehicle.DateAndTimeParked);
+
             double TimeSinceParked = Convert.ToInt32(TimeParked.TotalMinutes);
             double TotalCost = 0;
             if (TimeSinceParked > 5 && TimeSinceParked < 120)
@@ -118,22 +119,20 @@ namespace Pragueparking2._01
             }
             else if (TimeSinceParked >= 120)
             {
-                int parkedminutes = Convert.ToInt32((Convert.ToDateTime(vehicle.DateParked) - DateTime.Now).TotalMinutes);
-                parkedminutes = Math.Abs(parkedminutes);
+                double parkedMinutes = Math.Abs(TimeSinceParked);
+
                 if (vehicle.TypeOfVehicle == "mc")
                 {
-                    TotalCost = Math.Ceiling((TimeSinceParked / 60)) * (int)Price.Mc;
+                    TotalCost = Math.Ceiling((parkedMinutes / 60)) * (int)Price.Mc;
                 }
                 else
                 {
-                    TotalCost = Math.Ceiling((TimeSinceParked / 60)) * (int)Price.Car;
+                    TotalCost = Math.Ceiling((parkedMinutes / 60)) * (int)Price.Car;
                 }
             }
 
-
-            return TotalCost; 
+            return TotalCost;
         }
-    
-    }   
-    
+
+    }
 }
