@@ -42,7 +42,7 @@ namespace Pragueparking2._01
                    // ParkingList();
                     break;
                 case "5":
-                   // MoveVehicle();
+                    Move();
                     break;
                 case "6":
                    // SaveToFile();
