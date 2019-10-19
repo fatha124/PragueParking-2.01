@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Pragueparking2._01
 {
     public class Menu
     {
         private Registry registry;
+        private FileController fileController;
 
         public Menu(Registry registry)
         {
@@ -45,8 +48,13 @@ namespace Pragueparking2._01
                     Move();
                     break;
                 case "6":
-                    // SaveToFile();
-
+                    Console.Clear();
+                    fileController.SaveToFile();
+                    Console.WriteLine("Saving to file..");
+                    System.Threading.Thread.Sleep(1000);
+                    Console.WriteLine("File saved...");
+                    Console.ReadKey();
+                    MainMenu();
                     break;
                 case "7":
                     // LoadFromFile();
