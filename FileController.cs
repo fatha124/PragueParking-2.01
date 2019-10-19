@@ -9,6 +9,23 @@ namespace Pragueparking2._01
     {
         private static StreamReader ReadFile;
         private static StreamWriter WriteFile;
+        private Registry registry;
+        public void SaveToFile() 
+        {
+            using (WriteFile = new StreamWriter("ParkingLot.txt"))
+            {
+                WriteFile.Write(Save());
+            }
+        }
+        public StringBuilder Save() 
+        {
+            StringBuilder BuiltString = new StringBuilder();
+            foreach(Vehicle vehicle in registry.Vehicles) 
+            {
+            
+            }
+            return BuiltString;
+        }
     }
 }
 

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Pragueparking2._01 
+namespace Pragueparking2._01
 {
-  public class Menu
+    public class Menu
     {
         private Registry registry;
 
-        public Menu(Registry registry) 
+        public Menu(Registry registry)
         {
             this.registry = registry;
         }
-        public void MainMenu() 
+        public void MainMenu()
         {
             Console.Clear();
             DateTime localDate = DateTime.Now;
@@ -30,26 +30,26 @@ namespace Pragueparking2._01
             {
                 case "1":
                     Console.Clear();
-                    AddVehicle() ;
+                    AddVehicle();
                     break;
                 case "2":
                     SearchVehicle();
                     break;
                 case "3":
-                   CollectVehicle();
+                    CollectVehicle();
                     break;
                 case "4":
-                   // ParkingList();
+                    // ParkingList();
                     break;
                 case "5":
                     Move();
                     break;
                 case "6":
-                   // SaveToFile();
+                    // SaveToFile();
 
                     break;
                 case "7":
-                   // LoadFromFile();
+                    // LoadFromFile();
                     break;
                 case "8":
                     Environment.Exit(1);
@@ -59,12 +59,12 @@ namespace Pragueparking2._01
                     MainMenu();
                     break;
             }
-      
-        
-            
+
+
+
         }
 
-        public  void AddVehicle()
+        public void AddVehicle()
         {
             DateTime TimeWhenParked = DateTime.Now;
             Console.Clear();
@@ -128,15 +128,15 @@ namespace Pragueparking2._01
                 AddVehicle();
             }
         }
-        
-        public void SearchVehicle() 
+
+        public void SearchVehicle()
         {
             Console.Clear();
             Console.WriteLine("Enter registration number: ");
             string regnumb = Console.ReadLine();
             regnumb.ToLower();
             Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
-            if (vehicle == null) 
+            if (vehicle == null)
             {
                 Console.Clear();
                 Console.WriteLine("Your vehicle with regnumber {0} does not exist in the system.\n" +
@@ -153,14 +153,14 @@ namespace Pragueparking2._01
                     SearchVehicle();
                 }
             }
-            else 
+            else
             {
-                Console.WriteLine("Your {0} is parked at parkingspot {1} and was parked there {2}\n" + "What do you wish to do with this vehicle? \n"+
-                    "{1 - Collect}\n"+"{2 - Move vehicle}\n"+"{3- Return to MainMenu}",vehicle.TypeOfVehicle,vehicle.ParkingSpot,vehicle.DateAndTimeParked);
+                Console.WriteLine("Your {0} is parked at parkingspot {1} and was parked there {2}\n" + "What do you wish to do with this vehicle? \n" +
+                    "{1 - Collect}\n" + "{2 - Move vehicle}\n" + "{3- Return to MainMenu}", vehicle.TypeOfVehicle, vehicle.ParkingSpot, vehicle.DateAndTimeParked);
                 string Action = Console.ReadLine();
                 Action.ToLower();
                 Console.ReadKey();
-                if (Action == "1" || Action == "C") 
+                if (Action == "1" || Action == "C")
                 {
                     registry.Collect(vehicle);
                     double cost = registry.Collect(vehicle);
@@ -169,29 +169,29 @@ namespace Pragueparking2._01
                     MainMenu();
 
                 }
-                if(Action == "2" || Action == "Move") 
+                if (Action == "2" || Action == "Move")
                 {
-                    
+
                 }
-                if(Action == "3" || Action == "M") 
+                if (Action == "3" || Action == "M")
                 {
                     MainMenu();
                 }
             }
         }
-        
-        public void Move() 
+
+        public void Move()
         {
-            
+
             Console.Clear();
             Console.WriteLine("Enter registration number: ");
-             
+
             string regnumb = Console.ReadLine();
             regnumb.ToLower();
             Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
             string type = vehicle.TypeOfVehicle;
             DateTime TimeWhenParked = vehicle.DateAndTimeParked;
-            if (vehicle == null) 
+            if (vehicle == null)
             {
                 Console.Clear();
                 Console.WriteLine("Your vehicle with regnumber {0} does not exist in the system.\n" +
@@ -208,7 +208,7 @@ namespace Pragueparking2._01
                     Move();
                 }
             }
-            else 
+            else
             {
                 Console.Clear();
                 Console.WriteLine("Choose new parkingspot.");
@@ -235,15 +235,15 @@ namespace Pragueparking2._01
                 Console.Clear();
                 registry.RemoveVehicle(vehicle);
                 registry.RegisterVehicle(type, regnumb, parkspot, TimeWhenParked);
-                Console.WriteLine("{0} with registration number {1} has been moved to parkingspot {2}. The current time is {3} \n" + 
+                Console.WriteLine("{0} with registration number {1} has been moved to parkingspot {2}. The current time is {3} \n" +
                     "Press any key to return to menu...", type, regnumb, parkspot, TimeWhenParked);
                 Console.ReadKey();
                 MainMenu();
             }
-            
+
         }
-        
-        public void CollectVehicle() 
+
+        public void CollectVehicle()
         {
             Console.Clear();
             Console.WriteLine("Enter registration number: ");
@@ -268,7 +268,7 @@ namespace Pragueparking2._01
                     CollectVehicle();
                 }
             }
-            else 
+            else
             {
                 registry.RemoveVehicle(vehicle);
                 double cost = registry.CalculateTheCost(vehicle);
