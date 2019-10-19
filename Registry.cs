@@ -102,7 +102,7 @@ namespace Pragueparking2._01
         public double CalculateTheCost(Vehicle vehicle) 
         {
             
-            TimeSpan TimeParked = DateTime.Now - Convert.ToDateTime(vehicle.DateParked);
+            TimeSpan TimeParked = DateTime.Now - Convert.ToDateTime(vehicle.TimeParked);
             double TimeSinceParked = Convert.ToInt32(TimeParked.TotalMinutes);
             double TotalCost = 0;
             if (TimeSinceParked > 5 && TimeSinceParked < 120)
