@@ -11,6 +11,7 @@ namespace Pragueparking2._01
         private Menu menu;
         private Registry registry;
         private FileController fileController;
+        private Vehicle vehicle;
         //constructor
         public Program()
         {

@@ -10,6 +10,11 @@ namespace Pragueparking2._01
         private static StreamReader ReadFile;
         private static StreamWriter WriteFile;
         private Registry registry;
+       
+        public FileController(Registry  registry) 
+        {
+            this.registry = registry;
+        }
         public void SaveToFile()
         {
             using (WriteFile = new StreamWriter("ParkingLot.txt"))
