@@ -98,7 +98,13 @@ namespace Pragueparking2._01
             }
             return false;
         }
-
+        
+        public double Collect(Vehicle vehicle) 
+        {
+            RemoveVehicle(vehicle);
+            double cost = CalculateTheCost(vehicle);
+            return cost;
+        }
         public double CalculateTheCost(Vehicle vehicle)
         {
 

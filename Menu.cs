@@ -163,14 +163,15 @@ namespace Pragueparking2._01
                 if (Action == "1" || Action == "C") 
                 {
                     registry.Collect(vehicle);
-                    Console.WriteLine(" Your {0} has been collectect from parkingspot {1}, totalprice is {2}", vehicle.TypeOfVehicle, vehicle.ParkingSpot, cost);
+                    double cost = registry.Collect(vehicle);
+                    Console.WriteLine(" Your {0} has been collectect from parkingspot {1}, totalprice is {2}kr", vehicle.TypeOfVehicle, vehicle.ParkingSpot, cost);
                     Console.ReadKey();
                     MainMenu();
 
                 }
                 if(Action == "2" || Action == "Move") 
                 {
-                    Move();
+                    
                 }
                 if(Action == "3" || Action == "M") 
                 {
@@ -180,8 +181,43 @@ namespace Pragueparking2._01
         }
         
         public void Move() 
-        { 
-        
+        {
+            Console.Clear();
+            Console.WriteLine("Enter registration number: ");
+            string regnumb = Console.ReadLine();
+            regnumb.ToLower();
+            Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
+            if (vehicle == null) 
+            {
+                Console.Clear();
+                Console.WriteLine("Your vehicle with regnumber {0} does not exist in the system.\n" +
+                    " Press enter to continue...", regnumb);
+                Console.WriteLine("Or press {M} to return to the menu");
+                string action = Console.ReadLine();
+                action.ToLower();
+                if (action == "M")
+                {
+                    MainMenu();
+                }
+                else
+                {
+                    Move();
+                }
+            }
+            else 
+            {
+                Console.Clear();
+                Console.WriteLine("Choose new parkingspot.");
+                int parkspot = 0;
+                string chosenspot = Console.ReadLine();
+                int.TryParse(chosenspot, out parkspot);
+                while (parkspot == 0 || parkspot > 100 || parkspot < 0)
+                {
+                    Console.WriteLine("Invalid spot, choose a parkingspot between spot 1 - 100 ");
+                    int.TryParse(Console.ReadLine(), out parkspot);
+                    Console.Clear();
+                }
+            }
         }
         
         public void CollectVehicle() 
@@ -208,16 +244,6 @@ namespace Pragueparking2._01
                 {
                     CollectVehicle();
                 }
-               /* if (vehicle != null) 
-                {
-                    
-                    registry.RemoveVehicle(vehicle);
-                    double cost = registry.CalculateTheCost(vehicle);
-                    Console.WriteLine(" Your{0} has been collectect from parkingspot {1}, totalprice is{2}", vehicle.TypeOfVehicle,vehicle.RegNumber, cost);
-                    Console.ReadKey();
-                    MainMenu();
-                }
-                */
             }
             else 
             {
