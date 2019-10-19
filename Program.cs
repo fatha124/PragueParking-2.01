@@ -17,6 +17,7 @@ namespace Pragueparking2._01
             registry = new Registry();
             fileController = new FileController();
             menu = new Menu(registry);
+            
         }
         private void Run()
         {

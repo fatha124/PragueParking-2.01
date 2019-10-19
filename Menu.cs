@@ -11,9 +11,10 @@ namespace Pragueparking2._01
         private Registry registry;
         private FileController fileController;
 
-        public Menu(Registry registry)
+        public Menu(Registry registry, FileController fileController)
         {
             this.registry = registry;
+            this.fileController = fileController;
         }
         public void MainMenu()
         {
