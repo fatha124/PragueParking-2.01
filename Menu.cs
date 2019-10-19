@@ -162,21 +162,28 @@ namespace Pragueparking2._01
                 Console.ReadKey();
                 if (Action == "1" || Action == "C") 
                 {
-                    CollectVehicle();
+                    registry.RemoveVehicle(vehicle);
+                    double cost = registry.CalculateTheCost(vehicle);
+                    Console.WriteLine(" Your {0} has been collectect from parkingspot {1}, totalprice is {2}", vehicle.TypeOfVehicle, vehicle.ParkingSpot, cost);
+                    Console.ReadKey();
+                    MainMenu();
+
                 }
                 if(Action == "2" || Action == "Move") 
                 {
-                    Console.WriteLine("Coming soon");
+                    Move();
                 }
                 if(Action == "3" || Action == "M") 
                 {
-                    
+                    MainMenu();
                 }
-                
-                
             }
         }
         
+        public void Move() 
+        { 
+        
+        }
         
         public void CollectVehicle() 
         {
