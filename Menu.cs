@@ -128,6 +128,34 @@ namespace Pragueparking2._01
                 AddVehicle();
             }
         }
+        
+        public void SearchVehicle() 
+        {
+            Console.Clear();
+            Console.WriteLine("Enter registration number: ");
+            string regnumb = Console.ReadLine();
+            regnumb.ToLower();
+            Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
+            if (vehicle == null) 
+            {
+                Console.Clear();
+                Console.WriteLine("Your vehicle with regnumber {0} does not exist in the system.\n" +
+                    " Press enter to continue...", regnumb);
+                Console.WriteLine("Or press {M} to return to the menu");
+                string action = Console.ReadLine();
+                action.ToLower();
+                if (action == "M")
+                {
+                    MainMenu();
+                }
+                else
+                {
+                    SearchVehicle();
+                }
+            }
+        }
+        
+        
         public void CollectVehicle() 
         {
             Console.Clear();
