@@ -135,7 +135,7 @@ namespace Pragueparking2._01
             string regnumb = Console.ReadLine();
             regnumb.ToLower();
             Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
-            while (vehicle == null)
+            if (vehicle == null)
             {
 
                 Console.Clear();
@@ -152,7 +152,7 @@ namespace Pragueparking2._01
                 {
                     CollectVehicle();
                 }
-                if (vehicle != null) 
+               /* if (vehicle != null) 
                 {
                     
                     registry.RemoveVehicle(vehicle);
@@ -161,9 +161,16 @@ namespace Pragueparking2._01
                     Console.ReadKey();
                     MainMenu();
                 }
-
+                */
             }
-
+            else 
+            {
+                registry.RemoveVehicle(vehicle);
+                double cost = registry.CalculateTheCost(vehicle);
+                Console.WriteLine(" Your{0} has been collectect from parkingspot {1}, totalprice is{2}", vehicle.TypeOfVehicle, vehicle.RegNumber, cost);
+                Console.ReadKey();
+                MainMenu();
+            }
         }
 
     }
