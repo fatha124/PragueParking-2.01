@@ -127,7 +127,10 @@ namespace Pragueparking2._01
             {
                 AddVehicle();
             }
-            //Put code
+        }
+        public void CollectVehicle() 
+        {
+        
         }
 
     }
