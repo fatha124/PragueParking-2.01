@@ -12,7 +12,8 @@ namespace Pragueparking2._01
         private Menu menu;
         private Registry registry;
         private FileController fileController;
-        private Price price;
+
+        int price = Price.Car;
         
         //constructor
         public Program()
