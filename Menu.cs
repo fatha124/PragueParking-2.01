@@ -235,6 +235,10 @@ namespace Pragueparking2._01
                 Console.Clear();
                 registry.RemoveVehicle(vehicle);
                 registry.RegisterVehicle(type, regnumb, parkspot, TimeWhenParked);
+                Console.WriteLine("{0} with registration number {1} has been moved to parkingspot {2}. The current time is {3} \n" + 
+                    "Press any key to return to menu...", type, regnumb, parkspot, TimeWhenParked);
+                Console.ReadKey();
+                MainMenu();
             }
             
         }
