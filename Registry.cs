@@ -40,7 +40,8 @@ namespace Pragueparking2._01
         public Vehicle RegisterVehicle(string type, string regnumb, int spot, DateTime timewhenparked) 
         {
             Vehicle vehicle = new Vehicle(type, regnumb, spot, timewhenparked);
-            
+            Vehicles.Add(vehicle);
+
             return vehicle;
         }
         public void RemoveVehicle(Vehicle vehicle) 
