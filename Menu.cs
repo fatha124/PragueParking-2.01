@@ -58,7 +58,13 @@ namespace Pragueparking2._01
                     MainMenu();
                     break;
                 case "7":
-                    // LoadFromFile();
+                    Console.Clear();
+                    fileController.Read();
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(1000);
+                    Console.WriteLine("File loaded...");
+                    Console.ReadKey();
+                    MainMenu();
                     break;
                 case "8":
                     Environment.Exit(1);
