@@ -153,6 +153,28 @@ namespace Pragueparking2._01
                     SearchVehicle();
                 }
             }
+            else 
+            {
+                Console.WriteLine("Your {0} is parked at parkingspot {1} and was parked there {2}\n" + "What do you wish to do with this vehicle? \n"+
+                    "{1 - Collect}\n"+"{2 - Move vehicle}\n"+"{3- Return to MainMenu}",vehicle.TypeOfVehicle,vehicle.ParkingSpot,vehicle.DateAndTimeParked);
+                string Action = Console.ReadLine();
+                Action.ToLower();
+                Console.ReadKey();
+                if (Action == "1" || Action == "C") 
+                {
+                    CollectVehicle();
+                }
+                if(Action == "2" || Action == "Move") 
+                {
+                    Console.WriteLine("Coming soon");
+                }
+                if(Action == "3" || Action == "M") 
+                {
+                    
+                }
+                
+                
+            }
         }
         
         
