@@ -182,11 +182,15 @@ namespace Pragueparking2._01
         
         public void Move() 
         {
+            
             Console.Clear();
             Console.WriteLine("Enter registration number: ");
+             
             string regnumb = Console.ReadLine();
             regnumb.ToLower();
             Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
+            string type = vehicle.TypeOfVehicle;
+            DateTime TimeWhenParked = vehicle.DateAndTimeParked;
             if (vehicle == null) 
             {
                 Console.Clear();
@@ -217,7 +221,22 @@ namespace Pragueparking2._01
                     int.TryParse(Console.ReadLine(), out parkspot);
                     Console.Clear();
                 }
+                while (registry.CheckIfSpotIsTaken(parkspot, type))
+                {
+                    Console.WriteLine("The chosen spot {0} is  already taken\n" + "Please try again... ", parkspot);
+                    int.TryParse(Console.ReadLine(), out parkspot);
+                    while (parkspot == 0 || parkspot > 100 || parkspot < 0)
+                    {
+                        Console.WriteLine("Invalid spot, choose a parkingspot between spot 1 - 100 ");
+                        int.TryParse(Console.ReadLine(), out parkspot);
+                        Console.Clear();
+                    }
+                }
+                Console.Clear();
+                registry.RemoveVehicle(vehicle);
+                registry.RegisterVehicle(type, regnumb, parkspot, TimeWhenParked);
             }
+            
         }
         
         public void CollectVehicle() 
