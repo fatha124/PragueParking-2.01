@@ -33,7 +33,7 @@ namespace Pragueparking2._01
                     AddVehicle() ;
                     break;
                 case "2":
-                    //SearchVehicle();
+                    SearchVehicle();
                     break;
                 case "3":
                    CollectVehicle();
@@ -162,8 +162,7 @@ namespace Pragueparking2._01
                 Console.ReadKey();
                 if (Action == "1" || Action == "C") 
                 {
-                    registry.RemoveVehicle(vehicle);
-                    double cost = registry.CalculateTheCost(vehicle);
+                    registry.Collect(vehicle);
                     Console.WriteLine(" Your {0} has been collectect from parkingspot {1}, totalprice is {2}", vehicle.TypeOfVehicle, vehicle.ParkingSpot, cost);
                     Console.ReadKey();
                     MainMenu();
