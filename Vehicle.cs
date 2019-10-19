@@ -18,7 +18,7 @@ namespace Pragueparking2._01
             RegNumber = regnumb;
             ParkingSpot = parkspot;
             TimeParked = timewhenparked.ToString("HH:MM:ss");
-            DateParked = timewhenparked.ToString("MM/DD/YYYY");
+            DateParked = timewhenparked.ToString("mm/dd/yyyy");
         }
 
 
