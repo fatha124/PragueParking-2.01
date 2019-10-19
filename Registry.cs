@@ -93,12 +93,12 @@ namespace Pragueparking2._01
             return false;
         }
     
-        public void CalculateTheCost(Vehicle vehicle) 
+        public Double CalculateTheCost(Vehicle vehicle) 
         {
-            Vehicle vehicle;
+           
             TimeSpan TimeParked = DateTime.Now - Convert.ToDateTime(vehicle.DateParked);
-            double TimeSinceParked = Convert.ToInt32(TimeParked.TotalMinutes);
-            double TotalCost = 0;
+            Double TimeSinceParked = Convert.ToInt32(TimeParked.TotalMinutes);
+            Double TotalCost = 0;
             if (TimeSinceParked > 5 && TimeSinceParked < 120)
             {
                 if (vehicle.TypeOfVehicle == "mc")
@@ -123,6 +123,9 @@ namespace Pragueparking2._01
                     TotalCost = Math.Ceiling((TimeSinceParked / 60)) * (int)Price.Car;
                 }
             }
+
+
+            return Double; 
         }
     
     }   
