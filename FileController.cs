@@ -17,11 +17,15 @@ namespace Pragueparking2._01
         }
         public void SaveToFile()
         {
-            using (WriteFile = new StreamWriter("ParkingLot.txt"))
+            Save();
+          
+            /* using (WriteFile = new StreamWriter("ParkingLot.txt"))
             {
                 WriteFile.Write(Save());
             }
-        }
+            */
+        }   
+
         public StringBuilder Save()
         {
             
