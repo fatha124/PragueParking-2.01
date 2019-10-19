@@ -43,9 +43,9 @@ namespace Pragueparking2._01
             
             return vehicle;
         }
-        public void RemoveVehicle() 
+        public void RemoveVehicle(Vehicle vehicle) 
         {
-             Vehicles.Remove(Vehicle);
+             Vehicles.Remove(vehicle);
         }
         
         public bool CheckIfSpotIsTaken(int parkspot, string type) 
