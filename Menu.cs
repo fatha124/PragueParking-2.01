@@ -154,7 +154,9 @@ namespace Pragueparking2._01
                 }
                 if (vehicle != null) 
                 {
-                
+                    registry.RemoveVehicle(vehicle);
+                    registry.CalculateTheCost(vehicle);
+                        
                 }
 
             }
