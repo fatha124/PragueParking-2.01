@@ -21,17 +21,17 @@ namespace Pragueparking2._01
         }
         public StringBuilder Save()
         {
-            StringBuilder BuiltString = new StringBuilder();
+            StringBuilder builtString = new StringBuilder();
             foreach (Vehicle vehicle in registry.Vehicles)
             {
-                BuiltString.Append($"{vehicle.TypeOfVehicle}\n"
+                builtString.Append($"{vehicle.TypeOfVehicle}\n"
                 + $"{vehicle.regNumber}\n"
                     + $"{vehicle.DateAndTimeParked}\n"
                     + $"{vehicle.ParkingSpot}\n");
             }
-            string s = BuiltString.ToString();
+            string s = builtString.ToString();
             File.WriteAllText("ParkingLot.txt", s);
-            return BuiltString;
+            return builtString;
         }
         public void Read()
         {

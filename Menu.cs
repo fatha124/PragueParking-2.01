@@ -42,7 +42,7 @@ namespace Pragueparking2._01
                     CollectVehicle();
                     break;
                 case "4":
-                    // ParkingList();
+                    VehicleList();
                     break;
                 case "5":
                     Move();
@@ -312,7 +312,17 @@ namespace Pragueparking2._01
                 MainMenu();
             }
         }
-
+        public void VehicleList() 
+        {
+            Console.Clear();
+            foreach (Vehicle vehicle in registry.Vehicles) 
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine($"Parkingspot Nr {vehicle.ParkingSpot} contains: {vehicle.TypeOfVehicle} with registrationnumber: {vehicle.regNumber}");
+            }
+            Console.ReadKey();
+            MainMenu();
+        }   
     }
 }
 
