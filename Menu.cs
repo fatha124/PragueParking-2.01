@@ -317,8 +317,10 @@ namespace Pragueparking2._01
             Console.Clear();
             foreach (Vehicle vehicle in registry.Vehicles) 
             {
-                Console.WriteLine(" ");
-                Console.WriteLine($"Parkingspot Nr {vehicle.ParkingSpot} contains: {vehicle.TypeOfVehicle} with registrationnumber: {vehicle.regNumber}");
+                registry.Vehicles.OrderBy(vehicle => vehicle.ParkingSpot);
+                Console.WriteLine("**********************************************************");
+                Console.WriteLine($"Parkingspot Nr {vehicle.ParkingSpot} contains: {vehicle.TypeOfVehicle} with registrationnumber: {vehicle.regNumber} Parked: {vehicle.DateAndTimeParked}");
+                Console.WriteLine("**********************************************************");
             }
             Console.ReadKey();
             MainMenu();
