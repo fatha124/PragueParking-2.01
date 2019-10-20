@@ -5,15 +5,15 @@ namespace Pragueparking2._01
     public class Vehicle
     {
        public string TypeOfVehicle { get; set; }
-        public string RegNumber { get; set; }
+        public string regNumber { get; set; }
         public int ParkingSpot { get; set; }
         public DateTime DateAndTimeParked { get; set; }
-         public Vehicle(string type, string regnumb, int parkspot, DateTime timewhenparked) 
+         public Vehicle(string type, string regNumb, int parkSpot, DateTime timeWhenParked) 
         {
             TypeOfVehicle = type;
-            RegNumber = regnumb;
-            ParkingSpot = parkspot;
-            DateAndTimeParked = timewhenparked;
+            regNumber = regNumb;
+            ParkingSpot = parkSpot;
+            DateAndTimeParked = timeWhenParked;
         }
         public string GetTimeParked()
         {

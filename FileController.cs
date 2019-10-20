@@ -25,7 +25,7 @@ namespace Pragueparking2._01
             foreach (Vehicle vehicle in registry.Vehicles)
             {
                 BuiltString.Append($"{vehicle.TypeOfVehicle}\n"
-                + $"{vehicle.RegNumber}\n"
+                + $"{vehicle.regNumber}\n"
                     + $"{vehicle.DateAndTimeParked}\n"
                     + $"{vehicle.ParkingSpot}\n");
             }
@@ -43,8 +43,8 @@ namespace Pragueparking2._01
                 string Type = input[i];
                 string regnumb = input[i + 1];
                 string TimeWhenParked = input[i + 2];
-                string parkspot = input[i + 3];
-                int park = Int32.Parse(parkspot);
+                string parkSpot = input[i + 3];
+                int park = Int32.Parse(parkSpot);
                 DateTime time = Convert.ToDateTime(TimeWhenParked);
                 registry.RegisterVehicle(Type, regnumb, park, time);
             }

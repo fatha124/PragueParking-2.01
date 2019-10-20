@@ -84,17 +84,18 @@ namespace Pragueparking2._01
             type.ToLower();
             if (type == "car" || type == "mc" || type == "m" || type == "c")
             {
+                Console.Clear();
                 Console.WriteLine("Enter registration number: ");
-                string regnumb = Console.ReadLine();
-                regnumb.ToLower();
-                while (regnumb.Length != 6)
+                string regNumb = Console.ReadLine();
+                regNumb.ToLower();
+                while (regNumb.Length != 6)
                 {
                     Console.WriteLine("Invalid registration number.");
-                    regnumb = Console.ReadLine();
-                    regnumb.ToLower();
+                    regNumb = Console.ReadLine();
+                    regNumb.ToLower();
                     Console.Clear();
                 }
-                if (registry.CheckForDup(regnumb) == false)
+                if (registry.CheckForDup(regNumb) == false)
                 {
                     Console.Clear();
                     Console.WriteLine("Choose parkingspot.");
@@ -119,15 +120,15 @@ namespace Pragueparking2._01
                         }
                     }
                     Console.Clear();
-                    registry.RegisterVehicle(type, regnumb, parkspot, TimeWhenParked);
-                    Console.WriteLine("Your {0} with regnumber {1} has been parked at spot {2}.\n" + " At the current time {3}\n" + "Press enter to continue...", type, regnumb, parkspot, TimeWhenParked);
+                    registry.RegisterVehicle(type, regNumb, parkspot, TimeWhenParked);
+                    Console.WriteLine("Your {0} with regNumber {1} has been parked at spot {2}.\n" + " At the current time {3}\n" + "Press enter to continue...", type, regNumb, parkspot, TimeWhenParked);
                     Console.ReadKey();
                     MainMenu();
                 }
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("{0} already exist in the system.\n" + "Press any key to continue", regnumb);
+                    Console.WriteLine("{0} already exist in the system.\n" + "Press any key to continue", regNumb);
                     Console.ReadKey();
                     AddVehicle();
                 }
@@ -141,14 +142,14 @@ namespace Pragueparking2._01
         {
             Console.Clear();
             Console.WriteLine("Enter registration number: ");
-            string regnumb = Console.ReadLine();
-            regnumb.ToLower();
-            Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
+            string regNumb = Console.ReadLine();
+            regNumb.ToLower();
+            Vehicle vehicle = registry.SearchWithregNumber(regNumb);
             if (vehicle == null)
             {
                 Console.Clear();
-                Console.WriteLine("Your vehicle with regnumber {0} does not exist in the system.\n" +
-                    " Press enter to continue...", regnumb);
+                Console.WriteLine("Your vehicle with regNumber {0} does not exist in the system.\n" +
+                    " Press enter to continue...", regNumb);
                 Console.WriteLine("Or press {M} to return to the menu");
                 string action = Console.ReadLine();
                 action.ToLower();
@@ -192,16 +193,16 @@ namespace Pragueparking2._01
         {
             Console.Clear();
             Console.WriteLine("Enter registration number: ");
-            string regnumb = Console.ReadLine();
-            regnumb.ToLower();
-            Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
+            string regNumb = Console.ReadLine();
+            regNumb.ToLower();
+            Vehicle vehicle = registry.SearchWithregNumber(regNumb);
             string type = vehicle.TypeOfVehicle;
             DateTime TimeWhenParked = vehicle.DateAndTimeParked;
             if (vehicle == null)
             {
                 Console.Clear();
-                Console.WriteLine("Your vehicle with regnumber {0} does not exist in the system.\n" +
-                    " Press enter to continue...", regnumb);
+                Console.WriteLine("Your vehicle with regNumber {0} does not exist in the system.\n" +
+                    " Press enter to continue...", regNumb);
                 Console.WriteLine("Or press {M} to return to the menu");
                 string action = Console.ReadLine();
                 action.ToLower();
@@ -240,9 +241,9 @@ namespace Pragueparking2._01
                 }
                 Console.Clear();
                 registry.RemoveVehicle(vehicle);
-                registry.RegisterVehicle(type, regnumb, parkspot, TimeWhenParked);
+                registry.RegisterVehicle(type, regNumb, parkspot, TimeWhenParked);
                 Console.WriteLine("{0} with registration number {1} has been moved to parkingspot {2}. The current time is {3} \n" +
-                    "Press any key to return to menu...", type, regnumb, parkspot, TimeWhenParked);
+                    "Press any key to return to menu...", type, regNumb, parkspot, TimeWhenParked);
                 Console.ReadKey();
                 MainMenu();
             }
@@ -251,14 +252,14 @@ namespace Pragueparking2._01
         {
             Console.Clear();
             Console.WriteLine("Enter registration number: ");
-            string regnumb = Console.ReadLine();
-            regnumb.ToLower();
-            Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
+            string regNumb = Console.ReadLine();
+            regNumb.ToLower();
+            Vehicle vehicle = registry.SearchWithregNumber(regNumb);
             if (vehicle == null)
             {
                 Console.Clear();
-                Console.WriteLine("Your vehicle with regnumber {0} does not exist in the system.\n" +
-                    " Press enter to continue...", regnumb);
+                Console.WriteLine("Your vehicle with regNumber {0} does not exist in the system.\n" +
+                    " Press enter to continue...", regNumb);
                 Console.WriteLine("Or press {M} to return to the menu");
                 string action = Console.ReadLine();
                 action.ToLower();

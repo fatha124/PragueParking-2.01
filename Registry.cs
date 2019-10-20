@@ -14,20 +14,20 @@ namespace Pragueparking2._01
         {
             Vehicles = new List<Vehicle>();
         }
-         public Vehicle SearchWithRegNumber(string RegNumb)
+         public Vehicle SearchWithregNumber(string regNumb)
         {
             foreach (Vehicle vehicle in Vehicles)
             {
-                if (vehicle.RegNumber == RegNumb)
+                if (vehicle.regNumber == regNumb)
                 {
                     return vehicle;
                 }
             }
             return null;
         }
-        public Vehicle RegisterVehicle(string type, string regnumb, int spot, DateTime timewhenparked)
+        public Vehicle RegisterVehicle(string type, string regNumb, int spot, DateTime timewhenparked)
         {
-            Vehicle vehicle = new Vehicle(type, regnumb, spot, timewhenparked);
+            Vehicle vehicle = new Vehicle(type, regNumb, spot, timewhenparked);
             Vehicles.Add(vehicle);
 
             return vehicle;
@@ -37,7 +37,7 @@ namespace Pragueparking2._01
             Vehicles.Remove(vehicle);
         }
 
-        public bool CheckIfSpotIsTaken(int parkspot, string type)
+        public bool CheckIfSpotIsTaken(int parkSpot, string type)
         {
             if (Vehicles.Count == 0)
             {
@@ -45,14 +45,14 @@ namespace Pragueparking2._01
             }
             foreach (Vehicle vehicles in Vehicles)
             {
-                int check = CheckSpot(parkspot);
+                int check = CheckSpot(parkSpot);
                 if (check == 0)
                 {
                     return false;
                 }
                 if (type == "mc")
                 {
-                    if (vehicles.TypeOfVehicle == "mc" && CheckSpot(parkspot) < 2)
+                    if (vehicles.TypeOfVehicle == "mc" && CheckSpot(parkSpot) < 2)
                     {
                         return false;
                     }
@@ -61,12 +61,12 @@ namespace Pragueparking2._01
             return true;
         }
 
-        public int CheckSpot(int parkspot)
+        public int CheckSpot(int parkSpot)
         {
             int i = 0;
             foreach (Vehicle vehicles in Vehicles)
             {
-                if (vehicles.ParkingSpot == parkspot)
+                if (vehicles.ParkingSpot == parkSpot)
                 {
                     i++;
                 }
@@ -75,11 +75,11 @@ namespace Pragueparking2._01
             return i;
         }
 
-        public bool CheckForDup(string regnumb)
+        public bool CheckForDup(string regNumb)
         {
             foreach (Vehicle vehicles in Vehicles)
             {
-                if (vehicles.RegNumber == regnumb)
+                if (vehicles.regNumber == regNumb)
                 {
                     return true;
                 }
