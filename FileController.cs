@@ -50,21 +50,26 @@ namespace Pragueparking2._01
 
             string[] input = File.ReadAllLines("ParkingLot.txt");
 
-            string Type = null;
-            string regnumb = null;
-            int parkspot = Int32.Parse("1");
-            DateTime? TimeWhenParked = null;
              
             
 
             for (int i = 0; i < input.Length; i += 4)
                 {
-                var type = input[i];
-                var reg = input[i + 1];
-                var dateTime = input[i + 2];
-                var parkingSpot = input[i + 3];
+                
+                string Type = input[i];
+                string regnumb = input[i + 1];
+                string TimeWhenParked = input[i + 2];
+                string parkspot = input[i + 3];
+
+                int park = Int32.Parse(parkspot);
+                DateTime time = Convert.ToDateTime(TimeWhenParked);
+               
+                
+                registry.ReadFromFile(regnumb, Type, parkspot,(DateTime)time);
             }
-            registry.ReadFromFile(regnumb, Type, parkspot, (DateTime)TimeWhenParked);
+            
+            
+            
 
             /*
             List<int> Stringpoints = new List<int>();
