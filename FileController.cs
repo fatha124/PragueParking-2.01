@@ -52,18 +52,18 @@ namespace Pragueparking2._01
 
             string Type = null;
             string regnumb = null;
-            int parkspot;
+            int parkspot = Int32.Parse("1");
             DateTime? TimeWhenParked = null;
-            while (input != null && input.Length > 5) 
-            {
-                for (int i = 0; i < input.Length - 1; i++)
+            string read = ReadFile.ReadLine();
+
+            for (int i = 0; i < input.Length; i += 4)
                 {
-                    if (input[i] == "")
-                    {
-                        input.Add(i);
-                    }
-                }
+                Type = input[i];
+                regnumb = input[i];
+                parkspot = i;
+
             }
+            
 
             /*
             List<int> Stringpoints = new List<int>();
