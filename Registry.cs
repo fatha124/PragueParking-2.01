@@ -17,11 +17,7 @@ namespace Pragueparking2._01
 
         }
 
-        public void ReadFromFile(string regnumb, string type, int parkspot, DateTime timewhenparked)
-        {
-            Vehicle vehicle = new Vehicle(regnumb, type, parkspot, timewhenparked);
-            Vehicles.Add(vehicle);
-        }
+        
         public Vehicle SearchWithRegNumber(string RegNumb)
         {
             foreach (Vehicle vehicle in Vehicles)
@@ -33,14 +29,6 @@ namespace Pragueparking2._01
             }
             return null;
         }
-
-
-        public bool Search()
-        {
-
-            return true;
-        }
-
         public Vehicle RegisterVehicle(string type, string regnumb, int spot, DateTime timewhenparked)
         {
             Vehicle vehicle = new Vehicle(type, regnumb, spot, timewhenparked);
