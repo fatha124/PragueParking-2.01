@@ -46,8 +46,9 @@ namespace Pragueparking2._01
                 string parkspot = input[i + 3];
                 int park = Int32.Parse(parkspot);
                 DateTime time = Convert.ToDateTime(TimeWhenParked);
-                registry.RegisterVehicle(regnumb, Type, park, time);
+                registry.RegisterVehicle(Type, regnumb, park, time);
             }
+            
         }
     }
 }
