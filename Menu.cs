@@ -10,7 +10,6 @@ namespace Pragueparking2._01
     {
         private Registry registry;
         private FileController fileController;
-
         public Menu(Registry registry, FileController fileController)
         {
             this.registry = registry;
@@ -74,11 +73,7 @@ namespace Pragueparking2._01
                     MainMenu();
                     break;
             }
-
-
-
         }
-
         public void AddVehicle()
         {
             DateTime TimeWhenParked = DateTime.Now;
@@ -98,7 +93,6 @@ namespace Pragueparking2._01
                     regnumb = Console.ReadLine();
                     regnumb.ToLower();
                     Console.Clear();
-
                 }
                 if (registry.CheckForDup(regnumb) == false)
                 {
@@ -143,7 +137,6 @@ namespace Pragueparking2._01
                 AddVehicle();
             }
         }
-
         public void SearchVehicle()
         {
             Console.Clear();
@@ -194,13 +187,10 @@ namespace Pragueparking2._01
                 }
             }
         }
-
         public void Move()
         {
-
             Console.Clear();
             Console.WriteLine("Enter registration number: ");
-
             string regnumb = Console.ReadLine();
             regnumb.ToLower();
             Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
@@ -255,10 +245,8 @@ namespace Pragueparking2._01
                 Console.ReadKey();
                 MainMenu();
             }
-
         }
-
-        public void CollectVehicle()
+         public void CollectVehicle()
         {
             Console.Clear();
             Console.WriteLine("Enter registration number: ");
@@ -267,7 +255,6 @@ namespace Pragueparking2._01
             Vehicle vehicle = registry.SearchWithRegNumber(regnumb);
             if (vehicle == null)
             {
-
                 Console.Clear();
                 Console.WriteLine("Your vehicle with regnumber {0} does not exist in the system.\n" +
                     " Press enter to continue...", regnumb);

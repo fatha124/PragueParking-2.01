@@ -12,13 +12,9 @@ namespace Pragueparking2._01
         //Constructor
         public Registry()
         {
-
             Vehicles = new List<Vehicle>();
-
         }
-
-        
-        public Vehicle SearchWithRegNumber(string RegNumb)
+         public Vehicle SearchWithRegNumber(string RegNumb)
         {
             foreach (Vehicle vehicle in Vehicles)
             {
@@ -99,9 +95,7 @@ namespace Pragueparking2._01
         }
         public double CalculateTheCost(Vehicle vehicle)
         {
-
             TimeSpan TimeParked = DateTime.Now - Convert.ToDateTime(vehicle.DateAndTimeParked);
-
             double TimeSinceParked = Convert.ToInt32(TimeParked.TotalMinutes);
             double TotalCost = 0;
             if (TimeSinceParked > 5 && TimeSinceParked < 120)
