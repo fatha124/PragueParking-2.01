@@ -36,9 +36,10 @@ namespace Pragueparking2._01
         public void Read()
         {
             string[] input = File.ReadAllLines("ParkingLot.txt");
+            registry.Vehicles.Clear();
             for (int i = 0; i < input.Length; i += 4)
+            
             {
-                registry.Vehicles.Clear();
                 string Type = input[i];
                 string regnumb = input[i + 1];
                 string TimeWhenParked = input[i + 2];
