@@ -17,8 +17,10 @@ namespace Pragueparking2._01
         }
         public void SaveToFile()
         {
-            Save();
+             Save();
+
           
+
             /* using (WriteFile = new StreamWriter("ParkingLot.txt"))
             {
                 WriteFile.Write(Save());
@@ -36,7 +38,7 @@ namespace Pragueparking2._01
                 BuiltString.Append($"{vehicle.TypeOfVehicle}\n"
                 + $"{vehicle.RegNumber}\n"
                     + $"{vehicle.DateAndTimeParked}\n"
-                    + $"{vehicle.ParkingSpot}");
+                    + $"{vehicle.ParkingSpot}\n");
             }
             string s = BuiltString.ToString();
             File.WriteAllText("ParkingLot.txt", s);
@@ -44,6 +46,26 @@ namespace Pragueparking2._01
         }
         public void Read()
         {
+           // List<String> input = new List<string>();
+
+            string[] input = File.ReadAllLines("ParkingLot.txt");
+
+            string Type = null;
+            string regnumb = null;
+            int parkspot;
+            DateTime? TimeWhenParked = null;
+            while (input != null && input.Length > 5) 
+            {
+                for (int i = 0; i < input.Length - 1; i++)
+                {
+                    if (input[i] == "")
+                    {
+                        input.Add(i);
+                    }
+                }
+            }
+
+            /*
             List<int> Stringpoints = new List<int>();
 
             string Type = null;
@@ -53,7 +75,7 @@ namespace Pragueparking2._01
             using (ReadFile = new StreamReader("ParkingLot.txt"))
             {
                 string read = ReadFile.ReadLine();
-
+              
                 while (read != null && read.Length > 5)
                 {
                     for (int i = 0; i < read.Length - 1; i++)
@@ -71,8 +93,12 @@ namespace Pragueparking2._01
                     registry.ReadFromFile(regnumb, Type, parkspot,(DateTime)TimeWhenParked);
                     Stringpoints.Clear();
                     read = ReadFile.ReadLine();
+                               
                 }
-            }
+            
+            } 
+        
+    */
         }
     }
 }
