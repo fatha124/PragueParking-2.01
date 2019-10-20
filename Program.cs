@@ -23,6 +23,7 @@ namespace Pragueparking2._01
         private void Run()
         {
             //Test
+           /* 
             string reg1 = "123456";
             string reg2 = "654321";
             string reg3 = "666666";
@@ -36,7 +37,7 @@ namespace Pragueparking2._01
 
             fileController.SaveToFile();
             fileController.Read();
-
+            */
             menu.MainMenu();
 
         }
