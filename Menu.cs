@@ -99,29 +99,29 @@ namespace Pragueparking2._01
                 {
                     Console.Clear();
                     Console.WriteLine("Choose parkingspot.");
-                    int parkspot = 0;
+                    int parkSpot = 0;
                     string chosenspot = Console.ReadLine();
-                    int.TryParse(chosenspot, out parkspot);
-                    while (parkspot == 0 || parkspot > 100 || parkspot < 0)
+                    int.TryParse(chosenspot, out parkSpot);
+                    while (parkSpot == 0 || parkSpot > 100 || parkSpot < 0)
                     {
                         Console.WriteLine("Invalid spot, choose a parkingspot between spot 1 - 100 ");
-                        int.TryParse(Console.ReadLine(), out parkspot);
+                        int.TryParse(Console.ReadLine(), out parkSpot);
                         Console.Clear();
                     }
-                    while (registry.CheckIfSpotIsTaken(parkspot, type))
+                    while (registry.CheckIfSpotIsTaken(parkSpot, type))
                     {
-                        Console.WriteLine("The chosen spot {0} is  already taken\n" + "Please try again... ", parkspot);
-                        int.TryParse(Console.ReadLine(), out parkspot);
-                        while (parkspot == 0 || parkspot > 100 || parkspot < 0)
+                        Console.WriteLine("The chosen spot {0} is  already taken\n" + "Please try again... ", parkSpot);
+                        int.TryParse(Console.ReadLine(), out parkSpot);
+                        while (parkSpot == 0 || parkSpot > 100 || parkSpot < 0)
                         {
                             Console.WriteLine("Invalid spot, choose a parkingspot between spot 1 - 100 ");
-                            int.TryParse(Console.ReadLine(), out parkspot);
+                            int.TryParse(Console.ReadLine(), out parkSpot);
                             Console.Clear();
                         }
                     }
                     Console.Clear();
-                    registry.RegisterVehicle(type, regNumb, parkspot, TimeWhenParked);
-                    Console.WriteLine("Your {0} with regNumber {1} has been parked at spot {2}.\n" + " At the current time {3}\n" + "Press enter to continue...", type, regNumb, parkspot, TimeWhenParked);
+                    registry.RegisterVehicle(type, regNumb, parkSpot, TimeWhenParked);
+                    Console.WriteLine("Your {0} with regNumber {1} has been parked at spot {2}.\n" + " At the current time {3}\n" + "Press enter to continue...", type, regNumb, parkSpot, TimeWhenParked);
                     Console.ReadKey();
                     MainMenu();
                 }
@@ -166,7 +166,7 @@ namespace Pragueparking2._01
             {
                 double Currentcost = registry.CalculateTheCost(vehicle);
                 Console.WriteLine("Your {0} is parked at parkingspot {1} and was parked there {2}, current price is {3}kr\n" + "What do you wish to do with this vehicle? \n" +
-                    "1 - Collect\n" + "2 - Move vehicle\n" + "3- Return to MainMenu", vehicle.TypeOfVehicle, vehicle.ParkingSpot, vehicle.DateAndTimeParked,Currentcost);
+                    "1 - Collect\n" + "2 - Move vehicle\n" + "3- Return to MainMenu", vehicle.TypeOfVehicle, vehicle.ParkingSpot, vehicle.DateAndTimeParked, Currentcost);
                 string Action = Console.ReadLine();
                 Action.ToLower();
                 Console.ReadKey();
@@ -181,7 +181,37 @@ namespace Pragueparking2._01
                 }
                 if (Action == "2" || Action == "Move")
                 {
-
+                    Console.Clear();
+                    Console.WriteLine("Choose new parkingspot.");
+                    int parkSpot = 0;
+                    string type = vehicle.TypeOfVehicle;
+                    DateTime TimeWhenParked = vehicle.DateAndTimeParked;
+                    string chosenspot = Console.ReadLine();
+                    int.TryParse(chosenspot, out parkSpot);
+                    while (parkSpot == 0 || parkSpot > 100 || parkSpot < 0)
+                    {
+                        Console.WriteLine("Invalid spot, choose a parkingspot between spot 1 - 100 ");
+                        int.TryParse(Console.ReadLine(), out parkSpot);
+                        Console.Clear();
+                    }
+                    while (registry.CheckIfSpotIsTaken(parkSpot, type))
+                    {
+                        Console.WriteLine("The chosen spot {0} is  already taken\n" + "Please try again... ", parkSpot);
+                        int.TryParse(Console.ReadLine(), out parkSpot);
+                        while (parkSpot == 0 || parkSpot > 100 || parkSpot < 0)
+                        {
+                            Console.WriteLine("Invalid spot, choose a parkingspot between spot 1 - 100 ");
+                            int.TryParse(Console.ReadLine(), out parkSpot);
+                            Console.Clear();
+                        }
+                    }
+                    Console.Clear();
+                    registry.RemoveVehicle(vehicle);
+                    registry.RegisterVehicle(type, regNumb, parkSpot, TimeWhenParked);
+                    Console.WriteLine("{0} with registration number {1} has been moved to parkingspot {2}. The current time is {3} \n" +
+                        "Press any key to return to menu...", type, regNumb, parkSpot, TimeWhenParked);
+                    Console.ReadKey();
+                    MainMenu();
                 }
                 if (Action == "3" || Action == "M")
                 {
@@ -196,7 +226,7 @@ namespace Pragueparking2._01
             string regNumb = Console.ReadLine();
             regNumb.ToLower();
             Vehicle vehicle = registry.SearchWithregNumber(regNumb);
-            
+
             if (vehicle == null)
             {
                 Console.Clear();
@@ -218,38 +248,38 @@ namespace Pragueparking2._01
             {
                 Console.Clear();
                 Console.WriteLine("Choose new parkingspot.");
-                int parkspot = 0;
+                int parkSpot = 0;
                 string type = vehicle.TypeOfVehicle;
                 DateTime TimeWhenParked = vehicle.DateAndTimeParked;
                 string chosenspot = Console.ReadLine();
-                int.TryParse(chosenspot, out parkspot);
-                while (parkspot == 0 || parkspot > 100 || parkspot < 0)
+                int.TryParse(chosenspot, out parkSpot);
+                while (parkSpot == 0 || parkSpot > 100 || parkSpot < 0)
                 {
                     Console.WriteLine("Invalid spot, choose a parkingspot between spot 1 - 100 ");
-                    int.TryParse(Console.ReadLine(), out parkspot);
+                    int.TryParse(Console.ReadLine(), out parkSpot);
                     Console.Clear();
                 }
-                while (registry.CheckIfSpotIsTaken(parkspot, type))
+                while (registry.CheckIfSpotIsTaken(parkSpot, type))
                 {
-                    Console.WriteLine("The chosen spot {0} is  already taken\n" + "Please try again... ", parkspot);
-                    int.TryParse(Console.ReadLine(), out parkspot);
-                    while (parkspot == 0 || parkspot > 100 || parkspot < 0)
+                    Console.WriteLine("The chosen spot {0} is  already taken\n" + "Please try again... ", parkSpot);
+                    int.TryParse(Console.ReadLine(), out parkSpot);
+                    while (parkSpot == 0 || parkSpot > 100 || parkSpot < 0)
                     {
                         Console.WriteLine("Invalid spot, choose a parkingspot between spot 1 - 100 ");
-                        int.TryParse(Console.ReadLine(), out parkspot);
+                        int.TryParse(Console.ReadLine(), out parkSpot);
                         Console.Clear();
                     }
                 }
                 Console.Clear();
                 registry.RemoveVehicle(vehicle);
-                registry.RegisterVehicle(type, regNumb, parkspot, TimeWhenParked);
+                registry.RegisterVehicle(type, regNumb, parkSpot, TimeWhenParked);
                 Console.WriteLine("{0} with registration number {1} has been moved to parkingspot {2}. The current time is {3} \n" +
-                    "Press any key to return to menu...", type, regNumb, parkspot, TimeWhenParked);
+                    "Press any key to return to menu...", type, regNumb, parkSpot, TimeWhenParked);
                 Console.ReadKey();
                 MainMenu();
             }
         }
-         public void CollectVehicle()
+        public void CollectVehicle()
         {
             Console.Clear();
             Console.WriteLine("Enter registration number: ");
