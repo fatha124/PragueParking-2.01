@@ -163,8 +163,9 @@ namespace Pragueparking2._01
             }
             else
             {
-                Console.WriteLine("Your {0} is parked at parkingspot {1} and was parked there {2}\n" + "What do you wish to do with this vehicle? \n" +
-                    "{1 - Collect}\n" + "{2 - Move vehicle}\n" + "{3- Return to MainMenu}", vehicle.TypeOfVehicle, vehicle.ParkingSpot, vehicle.DateAndTimeParked);
+                double Currentcost = registry.CalculateTheCost(vehicle);
+                Console.WriteLine("Your {0} is parked at parkingspot {1} and was parked there {2}, current price is {3}kr\n" + "What do you wish to do with this vehicle? \n" +
+                    "1 - Collect\n" + "2 - Move vehicle\n" + "3- Return to MainMenu", vehicle.TypeOfVehicle, vehicle.ParkingSpot, vehicle.DateAndTimeParked,Currentcost);
                 string Action = Console.ReadLine();
                 Action.ToLower();
                 Console.ReadKey();
