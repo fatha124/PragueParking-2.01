@@ -196,8 +196,7 @@ namespace Pragueparking2._01
             string regNumb = Console.ReadLine();
             regNumb.ToLower();
             Vehicle vehicle = registry.SearchWithregNumber(regNumb);
-            string type = vehicle.TypeOfVehicle;
-            DateTime TimeWhenParked = vehicle.DateAndTimeParked;
+            
             if (vehicle == null)
             {
                 Console.Clear();
@@ -220,6 +219,8 @@ namespace Pragueparking2._01
                 Console.Clear();
                 Console.WriteLine("Choose new parkingspot.");
                 int parkspot = 0;
+                string type = vehicle.TypeOfVehicle;
+                DateTime TimeWhenParked = vehicle.DateAndTimeParked;
                 string chosenspot = Console.ReadLine();
                 int.TryParse(chosenspot, out parkspot);
                 while (parkspot == 0 || parkspot > 100 || parkspot < 0)
